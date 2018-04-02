@@ -1,0 +1,39 @@
+
+.res-rech li {
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    width:195px;
+    height: 16px;
+    padding: 5px;
+    background-color: white;
+    cursor: pointer;
+    list-style-type: none;
+}
+
+.res-rech li:hover {
+    background-color: #607D8B;
+}
+
+.res-rech li a {
+    color: #888;
+    display: block;
+    text-decoration: none;
+}
+
+.res-rech li a:hover {
+    color: white;
+}
+.res-rech li a:active {
+    color: white;
+}
+#barre-rech {
+    width: 200px;
+    height: 20px;
+}
+
+
+ul.res-rech {
+    margin-top: 0;
+    padding-left: 0;
+}

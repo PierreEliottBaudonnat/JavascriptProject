@@ -1,0 +1,54 @@
+<html>
+
+    <app-personne-rech></app-personne-rech>
+
+    <h3>Mes personnes favorites !</h3>
+
+    <div class="grid grid-pad">
+        <a *ngFor="let personneX of personnes" class="col-1-4" routerLink="/detail/{{personneX.id}}">
+            <div class="module personne">
+                <h4>{{personneX.prenom}}</h4>
+            </div>
+        </a>
+    </div>
+
+    <div>
+        <div class="aj">
+            <label>Nom :
+                <input #persNom />
+            </label>
+        </div>
+        <div class="aj">
+            <label>Prenom :
+                <input #persPrenom />
+            </label>
+        </div>
+        <div class="aj">
+            <label>Adresse :
+                <input #persAdresse />
+            </label>
+        </div>
+        <div class="aj">
+            <label>Code Postal :
+                <input #persCP />
+            </label>
+        </div>
+        <div class="aj">
+            <label>Ville :
+                <input #persVille />
+            </label>
+        </div>
+        <div class="aj">
+            <label>Email :
+                <input #persEmail />
+            </label>
+        </div>
+
+        <!-- passe tous les input puis les vide après-->
+        <button (click)="ajout(persNom.value, persPrenom.value, persAdresse.value, persCP.value, persVille.value, persEmail.value);
+            persNom.value=''; persPrenom.value=''; persAdresse.value=''; persCP.value=''; persVille.value=''; persEmail.value='' ">
+            Ajouter
+        </button>
+    </div>
+
+</html>

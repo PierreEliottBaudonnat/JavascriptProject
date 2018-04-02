@@ -1,0 +1,17 @@
+<html>
+
+    <div id="rech-component">
+        <h4>Personne recherchée</h4>
+
+        <input #barreRech id="barre-rech" (keyup)="recherche(barreRech.value)"/>       <!-- keyup -> evenement de frappe au clavier-->
+
+        <ul class="res-rech">                               <!-- ici, le $ après personnes signifie que c'est un Observable et pas un tableau-->
+            <li *ngFor="let personneX of personnes$ | async" >  <!-- le | async appelle le AsyncPipe d'Angular (qui se lie à un Observable)-->
+                <a routerLink="/detail/{{personneX.id}}">
+                    {{personneX.prenom}}
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</html>

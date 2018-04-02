@@ -1,0 +1,39 @@
+<html>
+
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <div id="det">
+        <div *ngIf="personne">       <!-- le *ngIf n'affiche rien du h2 quand rien n'est sélectionné-->
+
+            <h2>Les détails de {{personne.prenom | uppercase}} !</h2>
+            <div>Id : <span>{{personne.id}}</span></div>
+            <div>Nom : <span>{{personne.nom}}</span></div>
+            <div>Prenom : <span>{{personne.prenom}}</span></div>
+            <div>Adresse : <span>{{personne.adresse}}</span></div>
+            <div>Code Postal : <span>{{personne.codePostal}}</span></div>
+            <div>Ville : <span>{{personne.ville}}</span></div>
+            <div>Email : <span>{{personne.email}}</span></div>
+        </div>
+
+        <button (click)="retour()">Retour</button>
+        <button (click)="modifier()">Modifier</button>
+    </div>
+
+    <div id="mod">
+        <div *ngIf="personne">              <!--le ngModel -> syntaxe d'Angular pour faire la liaison de données bidirectionelles -->
+                                            <!-- ici, les propriétés personne.qqchose sont liés à la zone de texte HTML-->
+            <h2>Modification de {{personne.prenom | uppercase}} !</h2>
+            <div>Nom : <input [(ngModel)] = personne.nom placeholder="ex: Cavafairetoutnoir" /></div>
+            <div>Prenom : <input [(ngModel)] = personne.prenom placeholder="ex: Jean-Michel" /></div>
+            <div>Adresse : <input [(ngModel)] = personne.adresse placeholder="ex: 10 avenue de l'inconnu" /></div>
+            <div>Code Postal : <input [(ngModel)] = personne.codePostal placeholder="ex: 63000" /></div>
+            <div>Ville : <input [(ngModel)] = personne.ville placeholder="ex: Saint-Jean de Beugnier" /></div>
+            <div>Email : <input [(ngModel)] = personne.email placeholder="ex: jm.cvftn@laposte.net" /></div>
+        </div>
+
+        <button (click)="sauvegarder()">Sauvegarder</button>
+
+    </div>
+
+</html>

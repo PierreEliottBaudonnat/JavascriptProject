@@ -1,0 +1,61 @@
+<html>
+
+    <h2>Ma liste de personnes : </h2>
+
+    <!-- <app-personne-rech></app-personne-rech> -->
+
+    <ul class="pers">                                              <!-- Le *ngFor sert à répéter l'élément hôte pour chaque élément d'une liste -->
+        <li  *ngFor="let personneX of personnes">
+            <a routerLink="/detail/{{personneX.id}}">
+                <span class="badge">{{personneX.id}}</span>                                    <!-- Ici, personnes correspond à la -->
+                <span>{{personneX.prenom}}</span>                                               <!--   liste de PersonnesComponent -->
+            </a>
+            <button class="supr" title="Supprimer la personne" (click)="supprimer(personneX)">X</button>
+        </li>
+    </ul>
+
+    <div>
+        <div class="aj">
+            <label>Nom :
+                <input #persNom />
+            </label>
+        </div>
+        <div class="aj">
+            <label>Prenom :
+                <input #persPrenom />
+            </label>
+        </div>
+        <div class="aj">
+            <label>Adresse :
+                <input #persAdresse />
+            </label>
+        </div>
+        <div class="aj">
+            <label>Code Postal :
+                <input #persCP />
+            </label>
+        </div>
+        <div class="aj">
+            <label>Ville :
+                <input #persVille />
+            </label>
+        </div>
+        <div class="aj">
+            <label>Email :
+                <input #persEmail />
+            </label>
+        </div>
+
+        <!-- passe tous les input puis les vide après-->
+        <button (click)="ajout(persNom.value, persPrenom.value, persAdresse.value, persCP, persVille.value, persEmail.value);
+            persNom.value=''; persPrenom.value=''; persAdresse.value=''; persCP.value=''; persVille.value=''; persEmail.value='' ">
+            Ajouter
+        </button>
+    </div>
+
+    <!-- <app-personne-detail [personne]="personneSel"></app-personne-detail>         Sert au binding avec PersonneDetailComponent-->
+
+</html>
+
+<!-- (click)="estSelectionne(personneX)"
+                                            [class.selected]="personneX === personneSel" -->
